@@ -264,7 +264,7 @@
                         </behavior-instance>
                         <behavior-instance type="DestroyOutsideLayout" />
                     </behavior-instances>
-                    <blend-mode>1</blend-mode>
+                    <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>23</x>

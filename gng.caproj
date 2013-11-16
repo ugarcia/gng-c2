@@ -8,24 +8,24 @@
     <author-website>http://frontcoder.com</author-website>
     <app-id>com.frontcoder.gng</app-id>
     <unique-id>wh1yzu9wsb7f</unique-id>
-    <saved-with-version>13900</saved-with-version>
+    <saved-with-version>14600</saved-with-version>
     <used-plugins>
         <plugin author="Scirra" id="AJAX" version="1">AJAX</plugin>
-        <plugin author="Scirra" id="Dictionary" version="1">Dictionary</plugin>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
+        <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
-        <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
-        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
-        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
+        <plugin author="Scirra" id="Dictionary" version="1">Dictionary</plugin>
     </used-plugins>
     <used-behaviors>
-        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
-        <behavior author="FrontCoder" id="AIBehaviour" version="1">AI Behavior</behavior>
         <behavior author="Scirra" id="Flash" version="1">Flash</behavior>
         <behavior author="Scirra" id="LOS" version="1">Line Of Sight</behavior>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="FrontCoder" id="AIBehaviour" version="1">AI Behavior</behavior>
         <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
         <behavior author="Scirra" id="Timer" version="1">Timer</behavior>
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
@@ -876,7 +876,7 @@
                 </animation-folder>
             </object-type>
         </object-folder>
-        <object-folder expanded="0" name="Player">
+        <object-folder expanded="1" name="Player">
             <object-type name="Arthur" sid="5631366388823896">
                 <plugin id="Sprite" />
                 <instance-variables>
@@ -1915,6 +1915,7 @@
         <global-instance type="Audio" uid="87">
             <properties>
                 <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
                 <positioned-audio></positioned-audio>
                 <panning-model>HRTF</panning-model>
                 <distance-model>Exponential</distance-model>
