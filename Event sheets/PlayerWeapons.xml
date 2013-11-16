@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>PlayerWeapons</name>
+    <events>
+        <event-block sid="2570463859046553">
+            <conditions>
+                <condition id="-18" name="On created" sid="9488812769573871" type="Lance" />
+            </conditions>
+            <actions>
+                <action id="-11" name="Add to" sid="7630231419894689" type="Arthur">
+                    <param id="0" name="Instance variable">shoots</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action disabled="1" id="25" name="Play at object" sid="8219125134544233" type="Audio">
+                    <param id="0" name="Audio file">gng_player_shoot</param>
+                    <param id="1" name="Loop">0</param>
+                    <param id="2" name="Volume">0</param>
+                    <param id="3" name="Object">Lance</param>
+                    <param id="4" name="Inner angle">360</param>
+                    <param id="5" name="Outer angle">360</param>
+                    <param id="6" name="Outer gain">0</param>
+                    <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="9158043521756082" type="Audio">
+                    <param id="0" name="Audio file">gng_player_shoot</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="779338514865851">
+                    <conditions>
+                        <condition id="7" name="Is mirrored" sid="3109797139858955" type="Arthur" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="4969514539430741" type="Lance">
+                            <param id="0" name="Angle">180</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="9703410577273439" type="Lance">
+                            <param id="0" name="Angle">225</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="8269553648152541" type="Lance">
+                            <param id="0" name="Instance variable">direction</param>
+                            <param id="1" name="Value">-1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3721779427404605">
+                    <conditions>
+                        <condition id="7" inverted="1" name="Is mirrored" sid="4288729502751689" type="Arthur" />
+                    </conditions>
+                    <actions>
+                        <action id="-8" name="Set angle" sid="187996021590242" type="Lance">
+                            <param id="0" name="Angle">45</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="3575319071053582" type="Lance">
+                            <param id="0" name="Instance variable">direction</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="2189607897986402">
+            <conditions>
+                <condition id="-19" name="On destroyed" sid="3111945799113029" type="Lance" />
+            </conditions>
+            <actions>
+                <action id="-12" name="Subtract from" sid="9077266340315925" type="Arthur">
+                    <param id="0" name="Instance variable">shoots</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block any="1" sid="7160869465908887">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="318578672934736" type="Lance">
+                    <param id="0" name="Object">ApeBossBox</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="9603209381934135" type="Lance">
+                    <param id="0" name="Object">Hit1</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="9358850374194055" type="Lance" />
+                <action id="-12" name="Subtract from" sid="8981703295815829" type="ApeBossBox">
+                    <param id="0" name="Instance variable">health</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action disabled="1" id="25" name="Play at object" sid="622838504411606" type="Audio">
+                    <param id="0" name="Audio file">gng_hit</param>
+                    <param id="1" name="Loop">0</param>
+                    <param id="2" name="Volume">0</param>
+                    <param id="3" name="Object">Hit1</param>
+                    <param id="4" name="Inner angle">360</param>
+                    <param id="5" name="Outer angle">360</param>
+                    <param id="6" name="Outer gain">0</param>
+                    <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="2538494604467821" type="Audio">
+                    <param id="0" name="Audio file">gng_hit</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="29524689762635">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="9772417195786344" type="ApeBossBox">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="9613324503895741" type="ApeBoss">
+                            <param id="0" name="Object">BigDeath</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">2</param>
+                        </action>
+                        <action disabled="1" id="25" name="Play at object" sid="3211467240417339" type="Audio">
+                            <param id="0" name="Audio file">gng_boss_death</param>
+                            <param id="1" name="Loop">0</param>
+                            <param id="2" name="Volume">0</param>
+                            <param id="3" name="Object">BigDeath</param>
+                            <param id="4" name="Inner angle">360</param>
+                            <param id="5" name="Outer angle">360</param>
+                            <param id="6" name="Outer gain">0</param>
+                            <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="0" name="Play" sid="6427461557700854" type="Audio">
+                            <param id="0" name="Audio file">gng_boss_death</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="4430858029229129" type="ApeBoss" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block any="1" sid="7308732483867178">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="9004789652631976" type="Lance">
+                    <param id="0" name="Object">VampireBoss</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="6327733061811519" type="Lance">
+                    <param id="0" name="Object">Hit1</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="5920394338948886" type="Lance" />
+                <action disabled="1" id="25" name="Play at object" sid="6957185777458893" type="Audio">
+                    <param id="0" name="Audio file">gng_hit</param>
+                    <param id="1" name="Loop">0</param>
+                    <param id="2" name="Volume">0</param>
+                    <param id="3" name="Object">Hit1</param>
+                    <param id="4" name="Inner angle">360</param>
+                    <param id="5" name="Outer angle">360</param>
+                    <param id="6" name="Outer gain">0</param>
+                    <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="3939105741143386" type="Audio">
+                    <param id="0" name="Audio file">gng_hit</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="5888090113551424">
+                    <conditions>
+                        <condition behavior="AIBehavior" id="10" name="Is in State" sid="7737999232711061" type="VampireBoss">
+                            <param id="0" name="State">9</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="3837363022894151" type="VampireBoss">
+                            <param id="0" name="Instance variable">wakeupShoots</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3412611062849625">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="3101022234132655" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="2719758535310604" type="VampireBoss">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3814337824241924">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="9063919671170643" type="VampireBoss">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="7740860551794406" type="VampireBoss">
+                            <param id="0" name="Object">BigDeath</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action disabled="1" id="25" name="Play at object" sid="2465275316115091" type="Audio">
+                            <param id="0" name="Audio file">gng_boss_death</param>
+                            <param id="1" name="Loop">0</param>
+                            <param id="2" name="Volume">0</param>
+                            <param id="3" name="Object">BigDeath</param>
+                            <param id="4" name="Inner angle">360</param>
+                            <param id="5" name="Outer angle">360</param>
+                            <param id="6" name="Outer gain">0</param>
+                            <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="0" name="Play" sid="3138687009125983" type="Audio">
+                            <param id="0" name="Audio file">gng_boss_death</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="9132839802899791" type="VampireBoss" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block any="1" sid="7392606420220006">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="3176012981479107" type="Lance">
+                    <param id="0" name="Object">Witch</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="1192390518726948" type="Lance">
+                    <param id="0" name="Object">Death</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">1</param>
+                </action>
+                <action disabled="1" id="25" name="Play at object" sid="6227610470224782" type="Audio">
+                    <param id="0" name="Audio file">gng_hit_death</param>
+                    <param id="1" name="Loop">0</param>
+                    <param id="2" name="Volume">0</param>
+                    <param id="3" name="Object">Death</param>
+                    <param id="4" name="Inner angle">360</param>
+                    <param id="5" name="Outer angle">360</param>
+                    <param id="6" name="Outer gain">0</param>
+                    <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="9799272942666165" type="Audio">
+                    <param id="0" name="Audio file">gng_hit_death</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-9" name="Destroy" sid="309739631880326" type="Lance" />
+                <action id="-9" name="Destroy" sid="7830865139977257" type="Witch" />
+            </actions>
+        </event-block>
+        <event-block any="1" sid="7284702601452437">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="6585490930245513" type="Lance">
+                    <param id="0" name="Object">Zombie</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="2014629572359532" type="Lance">
+                    <param id="0" name="Object">Death</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">1</param>
+                </action>
+                <action disabled="1" id="25" name="Play at object" sid="2089087662547963" type="Audio">
+                    <param id="0" name="Audio file">gng_hit_death</param>
+                    <param id="1" name="Loop">0</param>
+                    <param id="2" name="Volume">0</param>
+                    <param id="3" name="Object">Death</param>
+                    <param id="4" name="Inner angle">360</param>
+                    <param id="5" name="Outer angle">360</param>
+                    <param id="6" name="Outer gain">0</param>
+                    <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="7429120402454884" type="Audio">
+                    <param id="0" name="Audio file">gng_hit_death</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-9" name="Destroy" sid="1265711755226706" type="Lance" />
+                <action id="-9" name="Destroy" sid="4126521235852608" type="Zombie" />
+            </actions>
+        </event-block>
+        <event-block any="1" sid="4145072423991458">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="7942118241753312" type="Lance">
+                    <param id="0" name="Object">Plant</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="8214443810041282" type="Lance">
+                    <param id="0" name="Object">Death</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">1</param>
+                </action>
+                <action disabled="1" id="25" name="Play at object" sid="7624120122520887" type="Audio">
+                    <param id="0" name="Audio file">gng_hit_death</param>
+                    <param id="1" name="Loop">0</param>
+                    <param id="2" name="Volume">0</param>
+                    <param id="3" name="Object">Death</param>
+                    <param id="4" name="Inner angle">360</param>
+                    <param id="5" name="Outer angle">360</param>
+                    <param id="6" name="Outer gain">0</param>
+                    <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="6112104670884093" type="Audio">
+                    <param id="0" name="Audio file">gng_hit_death</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-9" name="Destroy" sid="1146094684307632" type="Lance" />
+                <action id="-9" name="Destroy" sid="9308447435756578" type="Plant" />
+            </actions>
+        </event-block>
+        <event-block sid="1692206361982522">
+            <conditions>
+                <condition id="-3" inverted="1" name="Is on-screen" sid="4519559726130428" type="Lance" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="1021713849001182" type="Lance" />
+            </actions>
+        </event-block>
+        <event-block sid="8889544620253856">
+            <conditions>
+                <condition id="4" name="On finished" sid="6745301273850936" type="BigDeath">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="8568701637546632" type="BigDeath" />
+            </actions>
+        </event-block>
+        <event-block sid="8132054049968147">
+            <conditions>
+                <condition id="4" name="On finished" sid="8546730633077384" type="Hit1">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="8465185050821979" type="Hit1" />
+            </actions>
+        </event-block>
+        <event-block sid="6908084608559748">
+            <conditions>
+                <condition id="4" name="On finished" sid="7364140396375365" type="Death">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="4872014473136959" type="Death" />
+            </actions>
+        </event-block>
+        <comment>Object-based-sound too low in Chrome</comment>
+    </events>
+</c2eventsheet>

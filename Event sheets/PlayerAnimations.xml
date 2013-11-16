@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>PlayerAnimations</name>
+    <events>
+        <event-block sid="5232165431089795">
+            <conditions>
+                <condition id="-18" name="On created" sid="5239453618682608" type="Arthur" />
+            </conditions>
+            <actions>
+                <action id="26" name="Set listener object" sid="440713650476101" type="Audio">
+                    <param id="0" name="Object">Arthur</param>
+                </action>
+                <action id="-13" name="Set boolean" sid="6388614829117059" type="Arthur">
+                    <param id="0" name="Instance variable">levelCompleted</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5529491852421417">
+            <conditions>
+                <condition id="6" name="On frame changed" sid="896831329373452" type="Arthur" />
+                <condition id="3" name="Compare frame" sid="7571004285575906" type="Arthur">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Number">0</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block any="1" sid="2700026736497436">
+                    <conditions>
+                        <condition id="2" name="Is playing" sid="3232688922092943" type="Arthur">
+                            <param id="0" name="Animation">&quot;Shoot&quot;</param>
+                        </condition>
+                        <condition id="2" name="Is playing" sid="7521440428925986" type="Arthur">
+                            <param id="0" name="Animation">&quot;NakedShoot&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="9560672147347134" type="Arthur">
+                            <param id="0" name="Object">Lance</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="7755884612311701">
+            <conditions>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="6625005490996069" type="Arthur">
+                    <param id="0" name="Instance variable">dead</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="4427551070476386">
+                    <conditions>
+                        <condition id="4" name="On finished" sid="8782388985961383" type="Arthur">
+                            <param id="0" name="Animation">&quot;Shoot&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="6100239103785545">
+                            <conditions>
+                                <condition behavior="Platform" id="0" name="Is moving" sid="4015527200925767" type="ArthurBox" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="9863014895897866" type="Arthur">
+                                    <param id="0" name="Animation">&quot;Run&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1557088782759692">
+                            <conditions>
+                                <condition behavior="Platform" id="0" inverted="1" name="Is moving" sid="20618115077069" type="ArthurBox" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="2735863108250214" type="Arthur">
+                                    <param id="0" name="Animation">&quot;Idle&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="8461353100357712">
+                    <conditions>
+                        <condition id="4" name="On finished" sid="3498900491428635" type="Arthur">
+                            <param id="0" name="Animation">&quot;NakedShoot&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="9431502475416102">
+                            <conditions>
+                                <condition behavior="Platform" id="0" name="Is moving" sid="7584232402508984" type="ArthurBox" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="3013616798938872" type="Arthur">
+                                    <param id="0" name="Animation">&quot;NakedRun&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5763699163191168">
+                            <conditions>
+                                <condition behavior="Platform" id="0" inverted="1" name="Is moving" sid="1962801863981216" type="ArthurBox" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="3862067492573086" type="Arthur">
+                                    <param id="0" name="Animation">&quot;NakedIdle&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="2808180767396162">
+                    <conditions>
+                        <condition id="4" name="On finished" sid="3994121886152752" type="Arthur">
+                            <param id="0" name="Animation">&quot;DuckingShoot&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="6034725247827117" type="Arthur">
+                            <param id="0" name="Object">Lance</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="2084158028885564" type="Arthur">
+                            <param id="0" name="Animation">&quot;Ducking&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9896239325038864">
+                    <conditions>
+                        <condition id="4" name="On finished" sid="7757594115413149" type="Arthur">
+                            <param id="0" name="Animation">&quot;NakedDuckingShoot&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="6160003037389203" type="Arthur">
+                            <param id="0" name="Object">Lance</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="4366213225174975" type="Arthur">
+                            <param id="0" name="Animation">&quot;NakedDucking&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="6767587126939729">
+            <conditions>
+                <condition id="4" name="On finished" sid="7821960771216016" type="Arthur">
+                    <param id="0" name="Animation">&quot;Unarmor&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="9432970492177044" type="Arthur">
+                    <param id="0" name="Animation">&quot;NakedIdle&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7677451707181723">
+            <conditions>
+                <condition id="-8" name="Is boolean instance variable set" sid="6780098376105367" type="Arthur">
+                    <param id="0" name="Instance variable">damaged</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="6046792643053114" type="Arthur">
+                    <param id="0" name="Instance variable">damaged</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action behavior="Platform" id="9" name="Set vector Y" sid="2856542479858728" type="ArthurBox">
+                    <param id="0" name="Vector Y">-100</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="96836542349133">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="8622367983809606" type="Arthur">
+                            <param id="0" name="Instance variable">hasArmor</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="0" name="Set ignoring input" sid="7974765065813829" type="ArthurBox">
+                            <param id="0" name="Input">1</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="2740040681175111" type="Arthur">
+                            <param id="0" name="Instance variable">dead</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="4628238267157999" type="Arthur">
+                            <param id="0" name="Animation">&quot;Death&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action disabled="1" id="25" name="Play at object" sid="6606819286114203" type="Audio">
+                            <param id="0" name="Audio file">gng_player_death</param>
+                            <param id="1" name="Loop">0</param>
+                            <param id="2" name="Volume">0</param>
+                            <param id="3" name="Object">Arthur</param>
+                            <param id="4" name="Inner angle">360</param>
+                            <param id="5" name="Outer angle">360</param>
+                            <param id="6" name="Outer gain">0</param>
+                            <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="0" name="Play" sid="1630260603011486" type="Audio">
+                            <param id="0" name="Audio file">gng_player_death</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="6" name="Stop" sid="7512162400615959" type="Audio">
+                            <param id="0" name="Tag">&quot;Music&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4868054016063427">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="1238826756219002" type="Arthur">
+                            <param id="0" name="Instance variable">hasArmor</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="3617611861130663" type="Arthur">
+                            <param id="0" name="Instance variable">hasArmor</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="7525136716247475" type="Arthur">
+                            <param id="0" name="Animation">&quot;Unarmor&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="1365953663604699" type="Arthur">
+                            <param id="0" name="Instance variable">exhausted</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action behavior="Flash" id="0" name="Flash" sid="760371965987248" type="Arthur">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">3.0</param>
+                        </action>
+                        <action behavior="Timer" id="0" name="Start timer" sid="5659620606254309" type="Arthur">
+                            <param id="0" name="Duration">3.0</param>
+                            <param id="1" name="Type">0</param>
+                            <param id="2" name="Tag">&quot;Flash&quot;</param>
+                        </action>
+                        <action disabled="1" id="25" name="Play at object" sid="5748924081783866" type="Audio">
+                            <param id="0" name="Audio file">gng_player_unarmor</param>
+                            <param id="1" name="Loop">0</param>
+                            <param id="2" name="Volume">0</param>
+                            <param id="3" name="Object">Arthur</param>
+                            <param id="4" name="Inner angle">360</param>
+                            <param id="5" name="Outer angle">360</param>
+                            <param id="6" name="Outer gain">0</param>
+                            <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="0" name="Play" sid="7983117056512934" type="Audio">
+                            <param id="0" name="Audio file">gng_player_unarmor</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="2039452891436253">
+            <conditions>
+                <condition behavior="Timer" id="0" name="On timer" sid="843488918983228" type="Arthur">
+                    <param id="0" name="Tag">&quot;Flash&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="5994987762161958" type="Arthur">
+                    <param id="0" name="Instance variable">exhausted</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6280828848519772">
+            <conditions>
+                <condition id="4" name="On finished" sid="2831005762486416" type="Arthur">
+                    <param id="0" name="Animation">&quot;Death&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Timer" id="0" name="Start timer" sid="5284798089607693" type="Arthur">
+                    <param id="0" name="Duration">3</param>
+                    <param id="1" name="Type">0</param>
+                    <param id="2" name="Tag">&quot;RestartTime&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="9570614277143244">
+            <conditions>
+                <condition behavior="Timer" id="0" name="On timer" sid="6008405414108599" type="Arthur">
+                    <param id="0" name="Tag">&quot;RestartTime&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="4998846903447721" type="Arthur" />
+                <action id="-2" name="Go to layout" sid="3272954926276096" type="System">
+                    <param id="0" name="Layout">Map</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1922013080461268">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="6294609963499331" type="ArthurBox">
+                    <param id="0" name="Object">Key</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action disabled="1" id="0" name="Request URL" sid="955536228060148" type="AJAX">
+                    <param id="0" name="Tag">&quot;checkScore&quot;</param>
+                    <param id="1" name="URL">&quot;http://&quot;&amp;Browser.Domain&amp;&quot;:3000/scores/&quot;&amp;(time-Arthur.startTime)</param>
+                </action>
+                <action id="0" name="Request URL" sid="5746537126688023" type="AJAX">
+                    <param id="0" name="Tag">&quot;checkScore&quot;</param>
+                    <param id="1" name="URL">&quot;http://&quot;&amp;Browser.Domain&amp;&quot;/gameapi/gng/scores/&quot;&amp;(time-Arthur.startTime)</param>
+                </action>
+                <action behavior="Platform" id="0" name="Set ignoring input" sid="1605119211365932" type="ArthurBox">
+                    <param id="0" name="Input">1</param>
+                </action>
+                <action id="25" name="Play at object" sid="8508545812563496" type="Audio">
+                    <param id="0" name="Audio file">gng_liveup</param>
+                    <param id="1" name="Loop">0</param>
+                    <param id="2" name="Volume">0</param>
+                    <param id="3" name="Object">Arthur</param>
+                    <param id="4" name="Inner angle">360</param>
+                    <param id="5" name="Outer angle">360</param>
+                    <param id="6" name="Outer gain">0</param>
+                    <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="3885861253453458" type="Audio">
+                    <param id="0" name="Audio file">gng_liveup</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="4" name="Set animation" sid="6561787248831589" type="Arthur">
+                    <param id="0" name="Animation">&quot;Win&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="9062322307519658" type="Key" />
+            </actions>
+        </event-block>
+        <event-block sid="3193909386116625">
+            <conditions>
+                <condition id="0" name="On completed" sid="1451132802348986" type="AJAX">
+                    <param id="0" name="Tag">&quot;checkScore&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Load" sid="5336837438935142" type="ScoreDictionary">
+                    <param id="0" name="JSON">AJAX.LastData</param>
+                </action>
+                <action behavior="Timer" id="0" name="Start timer" sid="6223309153857717" type="Arthur">
+                    <param id="0" name="Duration">2</param>
+                    <param id="1" name="Type">0</param>
+                    <param id="2" name="Tag">&quot;NextLevelTime&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="8239660932331442">
+                    <conditions>
+                        <condition id="4" inverted="1" name="Is empty" sid="5431528275732689" type="ScoreDictionary" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="1510233697405909" type="System">
+                            <param id="0" name="Variable">scored</param>
+                            <param id="1" name="Value">ScoreDictionary.Get(&quot;score&quot;)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="855259524874951">
+            <conditions>
+                <condition behavior="Timer" id="0" name="On timer" sid="107369416427527" type="Arthur">
+                    <param id="0" name="Tag">&quot;NextLevelTime&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action disabled="1" id="-9" name="Set value" sid="4462509859619194" type="System">
+                    <param id="0" name="Variable">Level</param>
+                    <param id="1" name="Value">Level+1</param>
+                </action>
+                <action disabled="1" id="-2" name="Go to layout" sid="2896993231198685" type="System">
+                    <param id="0" name="Layout">Map</param>
+                </action>
+                <action id="-9" name="Destroy" sid="3906745585612995" type="Arthur" />
+                <action id="-2" name="Go to layout" sid="5290316193230536" type="System">
+                    <param id="0" name="Layout">Scores</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

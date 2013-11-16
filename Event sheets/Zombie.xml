@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Zombie</name>
+    <events>
+        <event-block sid="5505313717807949">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="8240434373800571" type="System">
+                    <param id="0" name="Interval (seconds)">3</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="5399227787576092" type="Arthur">
+                    <param id="0" name="Instance variable">levelCompleted</param>
+                </condition>
+                <condition id="-2" name="Compare Y" sid="7410338729226335" type="Arthur">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="Y co-ordinate">850</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="2521443840262798" type="System">
+                    <param id="0" name="Object to create">Zombie</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">Arthur.X + 200*random(-1,1)</param>
+                    <param id="3" name="Y">Arthur.Y - 50</param>
+                </action>
+                <action id="4" name="Set animation" sid="1824599814252041" type="Zombie">
+                    <param id="0" name="Animation">&quot;Invisible&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7540228759966816">
+            <conditions>
+                <condition behavior="Platform" id="9" name="On landed" sid="6567087144534199" type="Zombie" />
+                <condition id="2" name="Is playing" sid="3176615954865105" type="Zombie">
+                    <param id="0" name="Animation">&quot;Invisible&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="2324803036364825" type="Zombie">
+                    <param id="0" name="Animation">&quot;Spawn&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6779960933235437">
+            <conditions>
+                <condition id="4" name="On finished" sid="4888475876861436" type="Zombie">
+                    <param id="0" name="Animation">&quot;Spawn&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="1603201331571787" type="Zombie">
+                    <param id="0" name="Animation">&quot;Walk&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="7521109985013639">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="6976252110669964" type="Zombie">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="X co-ordinate">Arthur.X</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Set mirrored" sid="7170366195363306" type="Zombie">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="8283161670713031">
+            <conditions>
+                <condition id="2" name="Is playing" sid="5568855316559835" type="Zombie">
+                    <param id="0" name="Animation">&quot;Walk&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="7897719975180918">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="4318581456883593" type="Zombie">
+                            <param id="0" name="Object">ArthurBox</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="3233033232301428" type="Arthur">
+                            <param id="0" name="Instance variable">dead</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="4866243581790943" type="Arthur">
+                            <param id="0" name="Instance variable">exhausted</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="2656991182449499" type="Arthur">
+                            <param id="0" name="Instance variable">damaged</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3200916563307602">
+                    <conditions>
+                        <condition id="7" name="Is mirrored" sid="1160165530609509" type="Zombie" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="743415278169788" type="Zombie">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4480428120645646">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="1175846693995242" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="881408021513208" type="Zombie">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7950868402494058">
+                    <conditions>
+                        <condition behavior="Platform" id="10" name="Is by wall" sid="7771710825918986" type="Zombie">
+                            <param id="0" name="Side">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Set mirrored" sid="4373698774902917" type="Zombie">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6235604604467905">
+                    <conditions>
+                        <condition behavior="Platform" id="10" name="Is by wall" sid="9008073850940393" type="Zombie">
+                            <param id="0" name="Side">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Set mirrored" sid="3145524724999937" type="Zombie">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>ApeBossAI</name>
+    <events>
+        <variable constant="0" name="ApeBosses" sid="9948597082635635" static="0" type="number">0</variable>
+        <event-block sid="4534277366789077">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="4681344282875574" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="AIBehavior" id="1" name="Set Target" sid="7720452689947994" type="ApeBossBox">
+                    <param id="0" name="Set Target">ArthurBox</param>
+                </action>
+                <action behavior="LineOfSight" id="2" name="Add obstacle" sid="7701037944018778" type="ApeBossEye">
+                    <param id="0" name="Obstacle">RockFloor</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8851574085618407">
+            <conditions>
+                <condition id="-18" name="On created" sid="8379518479441044" type="ApeBossBox" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="426133847409663" type="System">
+                    <param id="0" name="Variable">ApeBosses</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action behavior="AIBehavior" id="2" name="Set Eye" sid="461066428847528" type="ApeBossBox">
+                    <param id="0" name="Set Eye">ApeBossEye</param>
+                </action>
+                <action behavior="AIBehavior" id="3" name="Set Weapon" sid="7527072594903043" type="ApeBossBox">
+                    <param id="0" name="Set Weapon">ApeBossWeapon</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6586334254679836">
+            <conditions>
+                <condition id="-19" name="On destroyed" sid="9184269557836166" type="ApeBoss" />
+            </conditions>
+            <actions>
+                <action id="-11" name="Subtract from" sid="9162374556036994" type="System">
+                    <param id="0" name="Variable">ApeBosses</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="9815805828204182">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="9386666424789048" type="System">
+                            <param id="0" name="Variable">ApeBosses</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="3614277201775956" type="System">
+                            <param id="0" name="Variable">VampireBosses</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition disabled="1" id="-14" name="Compare variable" sid="5555940426908502" type="System">
+                            <param id="0" name="Variable">Level</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="2022189537721566" type="Arthur">
+                            <param id="0" name="Instance variable">levelCompleted</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="6324931871470691" type="System">
+                            <param id="0" name="Object to create">Key</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">Arthur.X</param>
+                            <param id="3" name="Y">Arthur.Y - 130</param>
+                        </action>
+                        <action disabled="1" id="25" name="Play at object" sid="422589564727124" type="Audio">
+                            <param id="0" name="Audio file">gng_key_spawn</param>
+                            <param id="1" name="Loop">0</param>
+                            <param id="2" name="Volume">0</param>
+                            <param id="3" name="Object">Key</param>
+                            <param id="4" name="Inner angle">360</param>
+                            <param id="5" name="Outer angle">360</param>
+                            <param id="6" name="Outer gain">0</param>
+                            <param id="7" name="Tag (optional)">&quot;KeySound&quot;</param>
+                        </action>
+                        <action id="0" name="Play" sid="4316490893488649" type="Audio">
+                            <param id="0" name="Audio file">gng_key_spawn</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;KeySound&quot;</param>
+                        </action>
+                        <action id="6" name="Stop" sid="8445535567698144" type="Audio">
+                            <param id="0" name="Tag">&quot;Music&quot;</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="8551966773351315" type="Arthur">
+                            <param id="0" name="Instance variable">levelCompleted</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="8527510620171737" type="Witch" />
+                        <action id="-9" name="Destroy" sid="7189175583167027" type="ApeBoss" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="112158831070317">
+            <conditions>
+                <condition behavior="AIBehavior" id="11" name="On State Changed" sid="1237387641619693" type="ApeBossBox">
+                    <param id="0" name="State">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="1308759271104999" type="ApeBoss">
+                    <param id="0" name="Animation">&quot;Shoot&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4292426731955168">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="7288623172626368" type="ApeBossExtendedBox">
+                    <param id="0" name="Object">Lance</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="5889495783493863">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="8546523128452762" type="Lance">
+                            <param id="0" name="Instance variable">direction</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-1" name="Compare X" sid="7728105107645424" type="ApeBossExtendedBox">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="X co-ordinate">Lance.X</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="9449327207633445" type="ApeBossBox">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="7683323677795262" type="ApeBossBox">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4883272972075818">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="1261984903496574" type="Lance">
+                            <param id="0" name="Instance variable">direction</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-1" name="Compare X" sid="9514030198594649" type="ApeBossExtendedBox">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="X co-ordinate">Lance.X</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="3964108027860024" type="ApeBossBox">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="906220239545675" type="ApeBossBox">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="8275820976839476">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="9606269491625061" type="ApeBossBox">
+                    <param id="0" name="Object">ArthurBox</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="3967515652397003" type="Arthur">
+                    <param id="0" name="Instance variable">dead</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="8162729181360292" type="Arthur">
+                    <param id="0" name="Instance variable">exhausted</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="2239662358145235" type="Arthur">
+                    <param id="0" name="Instance variable">damaged</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4398229278451495">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="5647401660006693" type="ApeBossFlame">
+                    <param id="0" name="Object">ArthurBox</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="7524488956469817" type="Arthur">
+                    <param id="0" name="Instance variable">dead</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="7000812405153386" type="Arthur">
+                    <param id="0" name="Instance variable">exhausted</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="6280985346184903" type="ApeBossFlame" />
+                <action id="-13" name="Set boolean" sid="9793401946154024" type="Arthur">
+                    <param id="0" name="Instance variable">damaged</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6387748288800637">
+            <conditions>
+                <condition id="4" name="On finished" sid="3733965155835318" type="ApeBoss">
+                    <param id="0" name="Animation">&quot;Shoot&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="602259064247759" type="ApeBossWeapon">
+                    <param id="0" name="Object">ApeBossFlame</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="4" name="Set animation" sid="1051690110478614" type="ApeBoss">
+                    <param id="0" name="Animation">&quot;Idle&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action behavior="AIBehavior" id="0" name="Change State" sid="660689311725779" type="ApeBossBox">
+                    <param id="0" name="State">5</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="636927173719928">
+                    <conditions>
+                        <condition id="7" inverted="1" name="Is mirrored" sid="9792495645752802" type="ApeBoss" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="3194103826319644" type="ApeBossFlame">
+                            <param id="0" name="Angle">180</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

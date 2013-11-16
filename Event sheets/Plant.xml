@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Plant</name>
+    <events>
+        <event-block sid="6119648441515019">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="4308613100197015" type="System">
+                    <param id="0" name="Interval (seconds)">4</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="6160180279675739" type="Arthur">
+                    <param id="0" name="Instance variable">levelCompleted</param>
+                </condition>
+                <condition id="-2" name="Compare Y" sid="4715211196131211" type="Arthur">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="Y co-ordinate">850</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="8998773622351088" type="System">
+                    <param id="0" name="Object to create">Plant</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">Arthur.X + 200*random(-1,1)</param>
+                    <param id="3" name="Y">Arthur.Y - 50</param>
+                </action>
+                <action id="4" name="Set animation" sid="4196974768976923" type="Plant">
+                    <param id="0" name="Animation">&quot;Invisible&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6142315727027836">
+            <conditions>
+                <condition behavior="Platform" id="9" name="On landed" sid="7550245368753374" type="Plant" />
+                <condition id="2" name="Is playing" sid="2642859285124629" type="Plant">
+                    <param id="0" name="Animation">&quot;Invisible&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="2709654859583264" type="Plant">
+                    <param id="0" name="Animation">&quot;Spawn&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7693379949864252">
+            <conditions>
+                <condition id="4" name="On finished" sid="6813924621296941" type="Plant">
+                    <param id="0" name="Animation">&quot;Spawn&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="4312984265990907" type="Plant">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action behavior="Timer" id="0" name="Start timer" sid="6251184269625924" type="Plant">
+                    <param id="0" name="Duration">3</param>
+                    <param id="1" name="Type">1</param>
+                    <param id="2" name="Tag">&quot;PlantShoot&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="8978074361073608">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="7562702340601543" type="Plant">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="X co-ordinate">Arthur.X</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Set mirrored" sid="3507317077417813" type="Plant">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="3308776618206516">
+            <conditions>
+                <condition id="2" inverted="1" name="Is playing" sid="7582293923247205" type="Plant">
+                    <param id="0" name="Animation">&quot;Spawn&quot;</param>
+                </condition>
+                <condition id="2" inverted="1" name="Is playing" sid="1305899507959342" type="Plant">
+                    <param id="0" name="Animation">&quot;Invisible&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="3639605587005973">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="7254602006771519" type="Plant">
+                            <param id="0" name="Object">ArthurBox</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="3868561358462041" type="Arthur">
+                            <param id="0" name="Instance variable">dead</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="3908296691060597" type="Arthur">
+                            <param id="0" name="Instance variable">exhausted</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="9688705201438782" type="Arthur">
+                            <param id="0" name="Instance variable">damaged</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="6100599231875363">
+            <conditions>
+                <condition behavior="Timer" id="0" name="On timer" sid="8975981966083528" type="Plant">
+                    <param id="0" name="Tag">&quot;PlantShoot&quot;</param>
+                </condition>
+                <condition id="-3" name="Is on-screen" sid="1010219043749211" type="Plant" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="1660921675825489" type="Plant">
+                    <param id="0" name="Animation">&quot;Shoot&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4192527642661436">
+            <conditions>
+                <condition id="6" name="On frame changed" sid="9713671017073824" type="Plant" />
+                <condition id="2" name="Is playing" sid="5956094086892758" type="Plant">
+                    <param id="0" name="Animation">&quot;Shoot&quot;</param>
+                </condition>
+                <condition id="3" name="Compare frame" sid="9394817125191444" type="Plant">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Number">3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="2795270337106016" type="Plant">
+                    <param id="0" name="Object">PlantBolt</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">1</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="8731488660846101" type="PlantBolt">
+                    <param id="0" name="Angle">angle(Plant.X, Plant.Y, Arthur.X, Arthur.Y)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="87171855780531">
+            <conditions>
+                <condition id="4" name="On finished" sid="1457683670169439" type="Plant">
+                    <param id="0" name="Animation">&quot;Shoot&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="2276067392509451" type="Plant">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="995374210097264">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="2287359906771653" type="Plant">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="X co-ordinate">Arthur.X</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Set mirrored" sid="9680514319870612" type="Plant">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="975690413026945">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="4538994434764209" type="PlantBolt">
+                    <param id="0" name="Object">ArthurBox</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="1799863532172757" type="Arthur">
+                    <param id="0" name="Instance variable">dead</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="2250848183150392" type="Arthur">
+                    <param id="0" name="Instance variable">exhausted</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="8742656139893827" type="PlantBolt" />
+                <action id="-13" name="Set boolean" sid="4673705117427619" type="Arthur">
+                    <param id="0" name="Instance variable">damaged</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

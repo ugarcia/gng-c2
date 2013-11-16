@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Common</name>
+    <events>
+        <event-block sid="8058140314789025">
+            <conditions>
+                <condition id="-18" name="On created" sid="3566308993930204" type="FullScreenButton" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="7206723954276815">
+                    <conditions>
+                        <condition id="10" name="Is fullscreen" sid="2849567028003207" type="Browser" />
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="352036942037134" type="FullScreenButton">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8731453224252108">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="3369471115413697" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="3648699656935646" type="FullScreenButton">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="8061192360186714">
+            <conditions>
+                <condition id="3" name="On touched object" sid="4965555112393487" type="Touch">
+                    <param id="0" name="Object">FullScreenButton</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="10" name="Request fullscreen" sid="9493073190486552" type="Browser">
+                    <param id="0" name="Mode">3</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7613913173884372">
+            <conditions>
+                <condition id="15" name="On resized" sid="1155165968541937" type="Browser" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="2769577466038216">
+                    <conditions>
+                        <condition id="10" name="Is fullscreen" sid="101443737649675" type="Browser" />
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="6786183407385507" type="FullScreenButton">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5934793579864163">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="5177096089828757" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="6024426142205396" type="FullScreenButton">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

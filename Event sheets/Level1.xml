@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Level1</name>
+    <events>
+        <include>Common</include>
+        <event-block sid="5520096648786004">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="8558166874775863" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="9270625914922775" type="Audio">
+                    <param id="0" name="Audio file">gng_music</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">-15</param>
+                    <param id="1" name="Tag (optional)">&quot;Music&quot;</param>
+                </action>
+                <action id="-10" name="Set value" sid="1145587537231647" type="Arthur">
+                    <param id="0" name="Instance variable">startTime</param>
+                    <param id="1" name="Value">time</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="9380298531388071">
+                    <conditions>
+                        <condition id="-20" inverted="1" name="Is on mobile device" sid="9003915261360136" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="6972431580063323" type="System">
+                            <param id="0" name="Layer">2</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="2307869472847064" type="System">
+                            <param id="0" name="Layer">3</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="7644468526925069" type="System">
+                            <param id="0" name="Seconds">5</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="2201164252752995" type="System">
+                            <param id="0" name="Layer">3</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <include>PlayerInput</include>
+        <include>PlayerPlatform</include>
+        <include>PlayerAnimations</include>
+        <include>PlayerWeapons</include>
+        <include>ApeBossAI</include>
+        <include>VampireBossAI</include>
+        <include>ApeBossPlatform</include>
+        <include>Witch</include>
+        <include>Zombie</include>
+        <include>Plant</include>
+        <include>Misc</include>
+    </events>
+</c2eventsheet>

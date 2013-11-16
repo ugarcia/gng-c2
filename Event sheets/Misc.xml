@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Misc</name>
+    <events>
+        <event-block sid="3113872940760186">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="7763112779459152" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="3231572704063757" type="Key" />
+            </actions>
+        </event-block>
+        <event-block sid="1384029705397067">
+            <conditions>
+                <condition id="-18" name="On created" sid="6300937633569403" type="Key" />
+            </conditions>
+            <actions>
+                <action behavior="Flash" id="0" name="Flash" sid="9558134482683227" type="Key">
+                    <param id="0" name="&apos;On&apos; time">0.05</param>
+                    <param id="1" name="&apos;Off&apos; time">0.05</param>
+                    <param id="2" name="Duration">100</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="6826060969178391" type="Key">
+                    <param id="0" name="Angle">90</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6992118625604398">
+            <conditions>
+                <condition id="-19" name="On destroyed" sid="1193970728958046" type="Key" />
+            </conditions>
+            <actions>
+                <action id="6" name="Stop" sid="4866949422491139" type="Audio">
+                    <param id="0" name="Tag">&quot;KeySound&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5155446237610137">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="8622942812029576" type="Key">
+                    <param id="0" name="Object">RockFloor</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="0" name="Set speed" sid="7793392022354954" type="Key">
+                    <param id="0" name="Speed">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="9588061621753774">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="7171573747317885" type="Key">
+                    <param id="0" name="Object">Weed1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="0" name="Set speed" sid="6490919841999904" type="Key">
+                    <param id="0" name="Speed">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8639421713883564">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="6521498380395546" type="Key">
+                    <param id="0" name="Object">Weed2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="0" name="Set speed" sid="4031437845997557" type="Key">
+                    <param id="0" name="Speed">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2143682151518165">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="5995021800005874" type="Key">
+                    <param id="0" name="Object">Weed3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="0" name="Set speed" sid="175370668941571" type="Key">
+                    <param id="0" name="Speed">0</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

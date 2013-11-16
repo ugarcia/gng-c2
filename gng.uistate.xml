@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2uistate>
+    <!--This is a UI state file - its content describes the user interface settings when the project was last open.
+It is entirely optional and the project will load without it.  If you are placing the project under source control,
+you probably do not want to add any .uistate.xml files to the repository.-->
+    <configurations>
+        <active>
+            <configuration name="HTML5" />
+        </active>
+        <display name="HTML5" />
+    </configurations>
+    <open-tabs>
+        <layout>Level1</layout>
+        <layout>Map</layout>
+        <layout>Scores</layout>
+        <event-sheet>ApeBossPlatform</event-sheet>
+        <event-sheet>ApeBossAI</event-sheet>
+        <event-sheet>Witch</event-sheet>
+        <event-sheet>Level1</event-sheet>
+        <event-sheet>PlayerPlatform</event-sheet>
+        <event-sheet>PlayerWeapons</event-sheet>
+        <event-sheet>PlayerAnimations</event-sheet>
+        <event-sheet>PlayerInput</event-sheet>
+        <event-sheet>Map</event-sheet>
+        <event-sheet>Misc</event-sheet>
+        <event-sheet>Scores</event-sheet>
+        <event-sheet>Common</event-sheet>
+        <event-sheet active="1">VampireBossAI</event-sheet>
+        <event-sheet>Zombie</event-sheet>
+        <event-sheet>Plant</event-sheet>
+    </open-tabs>
+    <properties>
+        <property expanded="1" name="About" />
+        <property expanded="1" name="Project settings" />
+        <property expanded="1" name="Window Size" />
+        <property expanded="1" name="Configuration Settings" />
+    </properties>
+    <families-expanded root="1" />
+</c2uistate>

@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Witch</name>
+    <events>
+        <event-block sid="8895606585083392">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="861058882150842" type="System">
+                    <param id="0" name="Interval (seconds)">5</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="8691416679004307" type="Arthur">
+                    <param id="0" name="Instance variable">levelCompleted</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="5502783444218965" type="System">
+                    <param id="0" name="Object to create">Witch</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">Arthur.X + 200*random(-1,1)</param>
+                    <param id="3" name="Y">Arthur.Y - 300*random(0,1)</param>
+                </action>
+                <action id="4" name="Set animation" sid="7276622012169266" type="Witch">
+                    <param id="0" name="Animation">&quot;Spawn&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7956407135332234">
+            <conditions>
+                <condition id="-18" name="On created" sid="9528254642675689" type="Witch" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="509116707471845" type="Witch">
+                    <param id="0" name="Animation">&quot;Spawn&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6142674201784803">
+            <conditions>
+                <condition id="4" name="On finished" sid="3716017905671241" type="Witch">
+                    <param id="0" name="Animation">&quot;Spawn&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="3584056043653433" type="Witch">
+                    <param id="0" name="Animation">&quot;Idle&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action behavior="CustomMovement" id="2" name="Set speed" sid="3038390333036324" type="Witch">
+                    <param id="0" name="Which">1</param>
+                    <param id="1" name="Speed">100</param>
+                </action>
+                <action behavior="AIBehavior" id="0" name="Change State" sid="2620485881496526" type="Witch">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1812063281026848">
+            <conditions>
+                <condition id="2" inverted="1" name="Is playing" sid="3692609422528802" type="Witch">
+                    <param id="0" name="Animation">&quot;Spawn&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="9012214128097106">
+                    <conditions>
+                        <condition behavior="AIBehavior" id="11" name="On State Changed" sid="1728814487723245" type="Witch">
+                            <param id="0" name="State">8</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="1458155048468512" type="Witch">
+                            <param id="0" name="Animation">&quot;TurnStart&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action behavior="CustomMovement" id="2" name="Set speed" sid="2627435991995317" type="Witch">
+                            <param id="0" name="Which">2</param>
+                            <param id="1" name="Speed">random(-1,1)*10</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5860928199579295">
+                    <conditions>
+                        <condition behavior="AIBehavior" id="11" name="On State Changed" sid="9088530355087069" type="Witch">
+                            <param id="0" name="State">6</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="6679287784814132">
+                            <conditions>
+                                <condition id="-3" name="Is on-screen" sid="6866802278350826" type="Witch" />
+                            </conditions>
+                            <actions>
+                                <action behavior="CustomMovement" id="0" name="Stop" sid="716100627737354" type="Witch" />
+                                <action id="4" name="Set animation" sid="1133635492827593" type="Witch">
+                                    <param id="0" name="Animation">&quot;Shoot&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4203407416967574">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="6360923129557986" type="System" />
+                            </conditions>
+                            <actions>
+                                <action behavior="AIBehavior" id="0" name="Change State" sid="5287337159147926" type="Witch">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="3202685098641365">
+                    <conditions>
+                        <condition behavior="AIBehavior" id="11" name="On State Changed" sid="2465963419658149" type="Witch">
+                            <param id="0" name="State">7</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="779944124669964">
+                            <conditions>
+                                <condition id="-3" name="Is on-screen" sid="6740053152629106" type="Witch" />
+                            </conditions>
+                            <actions>
+                                <action behavior="CustomMovement" id="0" name="Stop" sid="1738501016001908" type="Witch" />
+                                <action id="4" name="Set animation" sid="5820258480873192" type="Witch">
+                                    <param id="0" name="Animation">&quot;Shoot&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4306047273514168">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="214563589828504" type="System" />
+                            </conditions>
+                            <actions>
+                                <action behavior="AIBehavior" id="0" name="Change State" sid="849865249486175" type="Witch">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="3403100759775515">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="9656137683633507" type="Witch">
+                            <param id="0" name="Object">ArthurBox</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="555733894476644" type="Arthur">
+                            <param id="0" name="Instance variable">dead</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="2957403170230372" type="Arthur">
+                            <param id="0" name="Instance variable">exhausted</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="3271118510223625" type="Arthur">
+                            <param id="0" name="Instance variable">damaged</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="625763640279472">
+            <conditions>
+                <condition id="4" name="On finished" sid="8893652430307126" type="Witch">
+                    <param id="0" name="Animation">&quot;TurnStart&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="1302460563454561" type="Witch">
+                    <param id="0" name="Animation">&quot;TurnEnd&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action behavior="CustomMovement" id="1" name="Reverse" sid="4773560487284542" type="Witch">
+                    <param id="0" name="Axes">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="1711833272059755">
+                    <conditions>
+                        <condition id="7" name="Is mirrored" sid="6749075589320248" type="Witch" />
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Set mirrored" sid="404071242726059" type="Witch">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6493840114903197">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="5046417200148612" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Set mirrored" sid="5455714342921534" type="Witch">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="2843173047699982">
+            <conditions>
+                <condition id="4" name="On finished" sid="564195420972343" type="Witch">
+                    <param id="0" name="Animation">&quot;TurnEnd&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="3439861849068459" type="Witch">
+                    <param id="0" name="Animation">&quot;Idle&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action behavior="AIBehavior" id="0" name="Change State" sid="6542253103035627" type="Witch">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action behavior="CustomMovement" id="2" name="Set speed" sid="8651714081221088" type="Witch">
+                    <param id="0" name="Which">2</param>
+                    <param id="1" name="Speed">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="74048943990196">
+            <conditions>
+                <condition id="4" name="On finished" sid="3182072079742341" type="Witch">
+                    <param id="0" name="Animation">&quot;Shoot&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="4733572390424823" type="Witch">
+                    <param id="0" name="Animation">&quot;Idle&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action behavior="CustomMovement" id="2" name="Set speed" sid="8829181687304324" type="Witch">
+                    <param id="0" name="Which">1</param>
+                    <param id="1" name="Speed">100</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="8860743412110812" type="Witch">
+                    <param id="0" name="Object">WitchClamp</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="4814698923394369">
+                    <conditions>
+                        <condition id="7" name="Is mirrored" sid="1770705774536847" type="Witch" />
+                    </conditions>
+                    <actions>
+                        <action behavior="CustomMovement" id="1" name="Reverse" sid="3165867174250984" type="Witch">
+                            <param id="0" name="Axes">1</param>
+                        </action>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="130961658865403" type="WitchClamp">
+                            <param id="0" name="Angle">180</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2763426494210861">
+                    <conditions>
+                        <condition behavior="AIBehavior" id="10" name="Is in State" sid="7980862751724934" type="Witch">
+                            <param id="0" name="State">7</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="8313524456085195" type="WitchClamp">
+                            <param id="0" name="Angle">90</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="4610040079333706">
+                    <conditions>
+                        <condition behavior="AIBehavior" id="10" name="Is in State" sid="6525825566054157" type="Witch">
+                            <param id="0" name="State">6</param>
+                        </condition>
+                        <condition behavior="AIBehavior" id="10" name="Is in State" sid="8917355011393061" type="Witch">
+                            <param id="0" name="State">7</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="AIBehavior" id="0" name="Change State" sid="8105133187892261" type="Witch">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="4088491723969499">
+                            <conditions>
+                                <condition id="5" inverted="1" name="Is tag playing" sid="68322941103757" type="Audio">
+                                    <param id="0" name="Tag">&quot;WitchSound&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Timer" id="0" name="Start timer" sid="445776909467981" type="Witch">
+                                    <param id="0" name="Duration">random(0,3)</param>
+                                    <param id="1" name="Type">0</param>
+                                    <param id="2" name="Tag">&quot;WitchSound&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="4683541540945253">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="9171007861677117" type="WitchClamp">
+                    <param id="0" name="Object">ArthurBox</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="4368965942194621" type="Arthur">
+                    <param id="0" name="Instance variable">dead</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="8384495341737053" type="Arthur">
+                    <param id="0" name="Instance variable">exhausted</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="2024093979813685" type="WitchClamp" />
+                <action id="-13" name="Set boolean" sid="4477235521547616" type="Arthur">
+                    <param id="0" name="Instance variable">damaged</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8954817186242758">
+            <conditions>
+                <condition behavior="Timer" id="0" name="On timer" sid="9206597530390605" type="Witch">
+                    <param id="0" name="Tag">&quot;WitchSound&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action disabled="1" id="25" name="Play at object" sid="7081316951573546" type="Audio">
+                    <param id="0" name="Audio file">gng_witch</param>
+                    <param id="1" name="Loop">0</param>
+                    <param id="2" name="Volume">0</param>
+                    <param id="3" name="Object">Witch</param>
+                    <param id="4" name="Inner angle">360</param>
+                    <param id="5" name="Outer angle">360</param>
+                    <param id="6" name="Outer gain">0</param>
+                    <param id="7" name="Tag (optional)">&quot;WitchSound&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="8392238264896871" type="Audio">
+                    <param id="0" name="Audio file">gng_witch</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;WitchSound&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Object-based-sound too low in Chrome</comment>
+    </events>
+</c2eventsheet>

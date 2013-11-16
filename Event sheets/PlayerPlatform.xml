@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>PlayerPlatform</name>
+    <events>
+        <event-block sid="1591725325156951">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="3351242259355712" type="System" />
+            </conditions>
+            <actions>
+                <action id="-4" name="Set position to another object" sid="9475024745677058" type="Arthur">
+                    <param id="0" name="Object">ArthurBox</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="1699745254742436">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="851239208117901" type="Arthur">
+                            <param id="0" name="Instance variable">runJumpVelocity</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="9015734454756073" type="ArthurBox">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="50775170029371">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="5527683545520991" type="Arthur">
+                            <param id="0" name="Instance variable">runJumpVelocity</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="4760892591476308" type="ArthurBox">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="9913573768771826">
+            <conditions>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="7161011013129213" type="Arthur">
+                    <param id="0" name="Instance variable">dead</param>
+                </condition>
+                <condition id="2" inverted="1" name="Is playing" sid="811208469324176" type="Arthur">
+                    <param id="0" name="Animation">&quot;Win&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="5466195022503493">
+                    <conditions>
+                        <condition behavior="Platform" id="8" name="On moved" sid="8668984258742501" type="ArthurBox" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="921925165997588">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="9150619696932459" type="Arthur">
+                                    <param id="0" name="Instance variable">hasArmor</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="1589138345484176" type="Arthur">
+                                    <param id="0" name="Animation">&quot;Run&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1965887477729583">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="6788457530927239" type="Arthur">
+                                    <param id="0" name="Instance variable">hasArmor</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="5372372700553657" type="Arthur">
+                                    <param id="0" name="Animation">&quot;NakedRun&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9245456781793571">
+                            <conditions>
+                                <condition behavior="Platform" id="3" name="Is jumping" sid="2630849579894018" type="ArthurBox" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="569318612855683">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="792915843104006" type="Arthur">
+                                            <param id="0" name="Instance variable">hasArmor</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="1206470192268329" type="Arthur">
+                                            <param id="0" name="Animation">&quot;RunJump&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="5535055662954964">
+                                    <conditions>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="1510137456335451" type="Arthur">
+                                            <param id="0" name="Instance variable">hasArmor</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="6667975822226791" type="Arthur">
+                                            <param id="0" name="Animation">&quot;NakedRunJump&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="350913839848163">
+                    <conditions>
+                        <condition behavior="Platform" id="7" name="On stopped" sid="3806963408393688" type="ArthurBox" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="8910549749222903">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="1857891648560612" type="Arthur">
+                                    <param id="0" name="Instance variable">hasArmor</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="5252062266921705" type="Arthur">
+                                    <param id="0" name="Animation">&quot;Idle&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="613376407146138">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="2260265828636456" type="Arthur">
+                                    <param id="0" name="Instance variable">hasArmor</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="9961480485887512" type="Arthur">
+                                    <param id="0" name="Animation">&quot;NakedIdle&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="2542500053522297">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="2609496208940333" type="Arthur">
+                                    <param id="0" name="Instance variable">ducking</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="4114374684099382">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="2065203901891577" type="Arthur">
+                                            <param id="0" name="Instance variable">hasArmor</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="1107945568806934" type="Arthur">
+                                            <param id="0" name="Animation">&quot;Ducking&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="7141008274706711">
+                                    <conditions>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="5441632303551796" type="Arthur">
+                                            <param id="0" name="Instance variable">hasArmor</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="3039383308386002" type="Arthur">
+                                            <param id="0" name="Animation">&quot;NakedDucking&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="5064212933257238">
+                    <conditions>
+                        <condition behavior="Platform" id="5" name="On jump" sid="6140221942837653" type="ArthurBox" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="4633794682418206">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="561437249952806" type="Arthur">
+                                    <param id="0" name="Instance variable">hasArmor</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="2033331515643931" type="Arthur">
+                                    <param id="0" name="Animation">&quot;IdleJump&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5147186651825778">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="9492589694979415" type="Arthur">
+                                    <param id="0" name="Instance variable">hasArmor</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="2357120295232372" type="Arthur">
+                                    <param id="0" name="Animation">&quot;NakedIdleJump&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3692560916428309">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="3443435079700189" type="Arthur">
+                                    <param id="0" name="Instance variable">ducking</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block any="1" sid="6677468365296292">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="5907766590183014" type="Keyboard">
+                                            <param id="0" name="Key">37 (Left arrow)</param>
+                                        </condition>
+                                        <condition id="4" name="Is touching object" sid="7543299534582428" type="Touch">
+                                            <param id="0" name="Object">LeftButton</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="6828128050018554" type="Arthur">
+                                            <param id="0" name="Instance variable">runJumpVelocity</param>
+                                            <param id="1" name="Value">-1</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="1459398254665701">
+                                            <conditions>
+                                                <condition id="-8" name="Is boolean instance variable set" sid="2268016186828372" type="Arthur">
+                                                    <param id="0" name="Instance variable">hasArmor</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="190609183242158" type="Arthur">
+                                                    <param id="0" name="Animation">&quot;RunJump&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="8781942928816723">
+                                            <conditions>
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="2459333609753687" type="Arthur">
+                                                    <param id="0" name="Instance variable">hasArmor</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="6703430200231309" type="Arthur">
+                                                    <param id="0" name="Animation">&quot;NakedRunJump&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block any="1" sid="3364025038204635">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="4411489041795528" type="Keyboard">
+                                            <param id="0" name="Key">39 (Right arrow)</param>
+                                        </condition>
+                                        <condition id="4" name="Is touching object" sid="1580222523041993" type="Touch">
+                                            <param id="0" name="Object">RightButton</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="7236463912088285" type="Arthur">
+                                            <param id="0" name="Instance variable">runJumpVelocity</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="6991393833582567">
+                                            <conditions>
+                                                <condition id="-8" name="Is boolean instance variable set" sid="7491999769652695" type="Arthur">
+                                                    <param id="0" name="Instance variable">hasArmor</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="6199197529003497" type="Arthur">
+                                                    <param id="0" name="Animation">&quot;RunJump&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="4589344653897506">
+                                            <conditions>
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="857505670501082" type="Arthur">
+                                                    <param id="0" name="Instance variable">hasArmor</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="7569038210812164" type="Arthur">
+                                                    <param id="0" name="Animation">&quot;NakedRunJump&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="9930866234880257">
+                    <conditions>
+                        <condition behavior="Platform" id="9" name="On landed" sid="5589916830352646" type="ArthurBox" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="2859930309416951" type="Arthur">
+                            <param id="0" name="Instance variable">runJumpVelocity</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="9704381381604908">
+                            <conditions>
+                                <condition behavior="Platform" id="0" name="Is moving" sid="9438609818244039" type="ArthurBox" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="2807039996967942">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="9965566882922013" type="Arthur">
+                                            <param id="0" name="Instance variable">hasArmor</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="8133282171429031" type="Arthur">
+                                            <param id="0" name="Animation">&quot;Run&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="3297229846570864">
+                                    <conditions>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="1986637822819105" type="Arthur">
+                                            <param id="0" name="Instance variable">hasArmor</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="2831512544976485" type="Arthur">
+                                            <param id="0" name="Animation">&quot;NakedRun&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="6570546419544042">
+                            <conditions>
+                                <condition behavior="Platform" id="0" inverted="1" name="Is moving" sid="3891101164957273" type="ArthurBox" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="6822483063108273">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="5591460681484188" type="Arthur">
+                                            <param id="0" name="Instance variable">hasArmor</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="5218351445741959" type="Arthur">
+                                            <param id="0" name="Animation">&quot;Idle&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="7541692873745027">
+                                    <conditions>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="893345568563764" type="Arthur">
+                                            <param id="0" name="Instance variable">hasArmor</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="6851169915693667" type="Arthur">
+                                            <param id="0" name="Animation">&quot;NakedIdle&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="519180230038056">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="8078026276553742" type="Arthur">
+                                    <param id="0" name="Instance variable">ducking</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="7537400130284799">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="4754915570446756" type="Arthur">
+                                            <param id="0" name="Instance variable">hasArmor</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="3867135263040544" type="Arthur">
+                                            <param id="0" name="Animation">&quot;Ducking&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="6047835801117818">
+                                    <conditions>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="824621136031129" type="Arthur">
+                                            <param id="0" name="Instance variable">hasArmor</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="609934602570092" type="Arthur">
+                                            <param id="0" name="Animation">&quot;NakedDucking&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

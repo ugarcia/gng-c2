@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Scores</name>
+    <events>
+        <include>Common</include>
+        <variable constant="0" name="scored" sid="9822484523305308" static="0" type="number">0</variable>
+        <event-block sid="1128366112439505">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="2935281587711174" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="1229672415742708">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="596768219072994" type="System">
+                            <param id="0" name="Variable">scored</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="0" name="Request URL" sid="5453647169575915" type="AJAX">
+                            <param id="0" name="Tag">&quot;scoresGET&quot;</param>
+                            <param id="1" name="URL">&quot;http://&quot;&amp;Browser.Domain&amp;&quot;:3000/scores&quot;</param>
+                        </action>
+                        <action disabled="1" id="0" name="Request URL" sid="3939772993122716" type="AJAX">
+                            <param id="0" name="Tag">&quot;scoresGET&quot;</param>
+                            <param id="1" name="URL">&quot;/gameapi/gng/scores&quot;</param>
+                        </action>
+                        <action id="0" name="Request URL" sid="8821212313156069" type="AJAX">
+                            <param id="0" name="Tag">&quot;scoresGET&quot;</param>
+                            <param id="1" name="URL">&quot;http://&quot;&amp;Browser.Domain&amp;&quot;/gameapi/gng/scores&quot;</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="337655171107833" type="System">
+                            <param id="0" name="Layer">1</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="7272211146404043" type="System">
+                            <param id="0" name="Layer">2</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8243423718810664">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="9794507512834066" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="675797849336962" type="Audio">
+                            <param id="0" name="Audio file">gng_success</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="8712699096196506" type="System">
+                            <param id="0" name="Layer">1</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="6434148084386775" type="System">
+                            <param id="0" name="Layer">2</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="6143373526932785">
+            <conditions>
+                <condition id="0" name="On completed" sid="3453865704898581" type="AJAX">
+                    <param id="0" name="Tag">&quot;scoresGET&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="11" name="Load" sid="9696148893589418" type="ScoresArray">
+                    <param id="0" name="JSON">AJAX.LastData</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="7523516850780863">
+                    <conditions>
+                        <condition id="3" name="For each element" sid="7611907250400728" type="ScoresArray">
+                            <param id="0" name="Axes">2</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="2283292939421509">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="3754546261355126" type="SpriteFont">
+                                    <param id="0" name="Unique ID">165</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Append text" sid="5689437637429227" type="SpriteFont">
+                                    <param id="0" name="Text">(ScoresArray.CurX+1)&amp;&quot;. &quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6436993249759056">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="3383689082824824" type="SpriteFont">
+                                    <param id="0" name="Unique ID">160</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Append text" sid="1695456442085152" type="SpriteFont">
+                                    <param id="0" name="Text">ScoresArray.At(ScoresArray.CurX,0,0)&amp;&quot; &quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1806783886586982">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="1022884182837328" type="SpriteFont">
+                                    <param id="0" name="Unique ID">164</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Append text" sid="5687117446809536" type="SpriteFont">
+                                    <param id="0" name="Text">ScoresArray.At(ScoresArray.CurX,1,0)&amp;&quot; &quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="7421280826989913">
+            <conditions>
+                <condition id="3" name="On touched object" sid="8358951365470564" type="Touch">
+                    <param id="0" name="Object">FireButton</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="114255600301266" type="FireButton">
+                    <param id="0" name="Animation">&quot;Pressed&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="0" name="Play" sid="9819484983724497" type="Audio">
+                    <param id="0" name="Audio file">gng_start</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="3829879276972237" type="System">
+                    <param id="0" name="Seconds">3</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="4334571909466204" type="System">
+                    <param id="0" name="Layout">Map</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4921192050359898">
+            <conditions>
+                <condition id="4" inverted="1" name="Is touching object" sid="5298528459861091" type="Touch">
+                    <param id="0" name="Object">FireButton</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="7607106901950661" type="FireButton">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="286058416984536">
+            <conditions>
+                <condition id="-9" name="Layer is visible" sid="7148969976083199" type="System">
+                    <param id="0" name="Layer">2</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="1622542269013829">
+                    <conditions>
+                        <condition id="-33" name="Pick by comparison" sid="9978174331701391" type="System">
+                            <param id="0" name="Object">SelectableChar</param>
+                            <param id="1" name="Expression">SelectableChar.id</param>
+                            <param id="2" name="Comparison">0</param>
+                            <param id="3" name="Value">ScoreNickSpriteFont.currentCharSelect</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="7425908041694663" type="SelectableChar">
+                            <param id="0" name="Instance variable">lastFrameTime</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">time-SelectableChar.frameMinTime</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="9914443020173183">
+                            <conditions>
+                                <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="3828526574865667" type="SelectableChar" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Flash" id="0" name="Flash" sid="9125785722713492" type="SelectableChar">
+                                    <param id="0" name="&apos;On&apos; time">0.2</param>
+                                    <param id="1" name="&apos;Off&apos; time">0.2</param>
+                                    <param id="2" name="Duration">Infinity</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7044550977134095">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="8528599534910654" type="Keyboard">
+                                    <param id="0" name="Key">38 (Up arrow)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="938995190786081" type="SelectableChar">
+                                    <param id="0" name="Instance variable">lastFrameTime</param>
+                                    <param id="1" name="Value">time</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="8905173385573161" type="SelectableChar">
+                                    <param id="0" name="Frame number">(SelectableChar.AnimationFrame + SelectableChar.AnimationFrameCount- 1) % SelectableChar.AnimationFrameCount</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="147182524443545">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="7133532739084812" type="Keyboard">
+                                    <param id="0" name="Key">40 (Down arrow)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="3494281484592827" type="SelectableChar">
+                                    <param id="0" name="Instance variable">lastFrameTime</param>
+                                    <param id="1" name="Value">time</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="5988617378240947" type="SelectableChar">
+                                    <param id="0" name="Frame number">(SelectableChar.AnimationFrame + 1) % SelectableChar.AnimationFrameCount</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6907410769912152">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="5520764094221585" type="Keyboard">
+                                    <param id="0" name="Key">37 (Left arrow)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="4623278422008072" type="ScoreNickSpriteFont">
+                                    <param id="0" name="Instance variable">currentCharSelect</param>
+                                    <param id="1" name="Value">(ScoreNickSpriteFont.currentCharSelect+4)%5</param>
+                                </action>
+                                <action behavior="Flash" id="1" name="Stop flashing" sid="7723608013984699" type="SelectableChar" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="1677293366923996">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="2064984363033827" type="Keyboard">
+                                    <param id="0" name="Key">39 (Right arrow)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="5834472534753084" type="ScoreNickSpriteFont">
+                                    <param id="0" name="Instance variable">currentCharSelect</param>
+                                    <param id="1" name="Value">(ScoreNickSpriteFont.currentCharSelect+1)%5</param>
+                                </action>
+                                <action behavior="Flash" id="1" name="Stop flashing" sid="2561220370372426" type="SelectableChar" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="9986794492783114">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="3265081017535669" type="Keyboard">
+                            <param id="0" name="Key">45 (Insert)</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="8978094295322378">
+                            <conditions>
+                                <condition id="-10" name="For" sid="3240886742983674" type="System">
+                                    <param id="0" name="Name">&quot;nickBuild&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">4</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="5315043327743136">
+                                    <conditions>
+                                        <condition id="-33" name="Pick by comparison" sid="4022739574553261" type="System">
+                                            <param id="0" name="Object">SelectableChar</param>
+                                            <param id="1" name="Expression">SelectableChar.id</param>
+                                            <param id="2" name="Comparison">0</param>
+                                            <param id="3" name="Value">loopindex</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="2855932247237607" type="ScoreNickSpriteFont">
+                                            <param id="0" name="Instance variable">nick</param>
+                                            <param id="1" name="Value">ScoreNickSpriteFont.nick&amp;mid(SelectableChar.chars, SelectableChar.AnimationFrame, 1)</param>
+                                        </action>
+                                        <action behavior="Flash" id="1" name="Stop flashing" sid="9985475996719392" type="SelectableChar" />
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="5273957335686986">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="4916021985346022" type="System">
+                                    <param id="0" name="First value">len(ScoreNickSpriteFont.nick)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">5</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action disabled="1" id="2" name="Post to URL" sid="3401003976993434" type="AJAX">
+                                    <param id="0" name="Tag">&quot;postScore&quot;</param>
+                                    <param id="1" name="URL">&quot;http://&quot;&amp;Browser.Domain&amp;&quot;:3000/scores&quot;</param>
+                                    <param id="2" name="Data">&quot;nick=&quot;&amp;URLEncode(ScoreNickSpriteFont.nick)&amp;&quot;&amp;score=&quot;&amp;scored</param>
+                                </action>
+                                <action id="2" name="Post to URL" sid="7558534143484976" type="AJAX">
+                                    <param id="0" name="Tag">&quot;postScore&quot;</param>
+                                    <param id="1" name="URL">&quot;http://&quot;&amp;Browser.Domain&amp;&quot;/gameapi/gng/scores&quot;</param>
+                                    <param id="2" name="Data">&quot;nick=&quot;&amp;URLEncode(ScoreNickSpriteFont.nick)&amp;&quot;&amp;score=&quot;&amp;scored</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="8342325936776221">
+            <conditions>
+                <condition id="0" name="On completed" sid="1168073841807613" type="AJAX">
+                    <param id="0" name="Tag">&quot;postScore&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="9422369172594411" type="System">
+                    <param id="0" name="Variable">scored</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="3211101394491854" type="System">
+                    <param id="0" name="Seconds">2</param>
+                </action>
+                <action id="-26" name="Restart layout" sid="5008862193836071" type="System" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

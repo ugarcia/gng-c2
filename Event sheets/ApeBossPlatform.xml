@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>ApeBossPlatform</name>
+    <events>
+        <event-block sid="3527290771814445">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="413701298530997" type="System" />
+            </conditions>
+            <actions>
+                <action id="-4" name="Set position to another object" sid="9671934638063659" type="ApeBoss">
+                    <param id="0" name="Object">ApeBossBox</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="9791840656765501" type="ApeBossExtendedBox">
+                    <param id="0" name="Object">ApeBoss</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="7667039580625864" type="ApeBossEye">
+                    <param id="0" name="Object">ApeBoss</param>
+                    <param id="1" name="Image point (optional)">3</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="4876218392060331" type="ApeBossWeapon">
+                    <param id="0" name="Object">ApeBoss</param>
+                    <param id="1" name="Image point (optional)">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2327378691725286">
+            <conditions>
+                <condition behavior="Platform" id="2" name="Is on floor" sid="4700767902425557" type="ApeBossBox" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="3505709577383996">
+                    <conditions>
+                        <condition behavior="AIBehavior" id="10" inverted="1" name="Is in State" sid="7570137717216724" type="ApeBossBox">
+                            <param id="0" name="State">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="3874129850404536">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="4965558585032556" type="ApeBossBox">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="X co-ordinate">ArthurBox.X</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="7" name="Set mirrored" sid="784991400686732" type="ApeBoss">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5411360717689948">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="649248679905715" type="ApeBossBox">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="X co-ordinate">ArthurBox.X</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="7" name="Set mirrored" sid="6029963934431625" type="ApeBoss">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="6827916783786544">
+                    <conditions>
+                        <condition behavior="AIBehavior" id="10" inverted="1" name="Is in State" sid="3237585873326617" type="ApeBossBox">
+                            <param id="0" name="State">2</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="9897137913529693">
+                            <conditions>
+                                <condition behavior="Platform" id="8" name="On moved" sid="1576740654587487" type="ApeBossBox" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="4144618154718249" type="ApeBoss">
+                                    <param id="0" name="Animation">&quot;Walk&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6401460123269332">
+                            <conditions>
+                                <condition behavior="Platform" id="1" name="Compare speed" sid="3417592648256511" type="ApeBossBox">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="Speed">80</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="7586764152486188" type="ApeBoss">
+                                    <param id="0" name="Animation">&quot;Run&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3275674856752737">
+                            <conditions>
+                                <condition behavior="Platform" id="7" name="On stopped" sid="1478721011110753" type="ApeBossBox" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="5010278029653618" type="ApeBoss">
+                                    <param id="0" name="Animation">&quot;Idle&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="1954508705370528">
+            <conditions>
+                <condition behavior="Platform" id="5" name="On jump" sid="6070879295307605" type="ApeBossBox" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="5552088858393241" type="ApeBoss">
+                    <param id="0" name="Animation">&quot;Jump&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3799169195894225">
+            <conditions>
+                <condition behavior="Platform" id="9" name="On landed" sid="7513618419328582" type="ApeBossBox" />
+            </conditions>
+            <actions>
+                <action disabled="1" id="25" name="Play at object" sid="2948629734958047" type="Audio">
+                    <param id="0" name="Audio file">gng_ape_step</param>
+                    <param id="1" name="Loop">0</param>
+                    <param id="2" name="Volume">-4</param>
+                    <param id="3" name="Object">ApeBossBox</param>
+                    <param id="4" name="Inner angle">360</param>
+                    <param id="5" name="Outer angle">360</param>
+                    <param id="6" name="Outer gain">0</param>
+                    <param id="7" name="Tag (optional)">&quot;ApeBossStepSound&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="7800190697602407" type="Audio">
+                    <param id="0" name="Audio file">gng_ape_step</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-4</param>
+                    <param id="1" name="Tag (optional)">&quot;ApeBossStepSound&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="5538201972152113">
+                    <conditions>
+                        <condition behavior="Platform" id="0" name="Is moving" sid="214274011258696" type="ApeBossBox" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="7788850666868692" type="ApeBoss">
+                            <param id="0" name="Animation">&quot;Walk&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="2496980379080362">
+                    <conditions>
+                        <condition behavior="Platform" id="0" inverted="1" name="Is moving" sid="3337580170786095" type="ApeBossBox" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="7367527802167026" type="ApeBoss">
+                            <param id="0" name="Animation">&quot;Idle&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="4259827886736619">
+            <conditions>
+                <condition id="6" name="On frame changed" sid="3592064589881789" type="ApeBoss" />
+                <condition disabled="1" id="5" inverted="1" name="Is tag playing" sid="5276012625616438" type="Audio">
+                    <param id="0" name="Tag">&quot;ApeBossStepSound&quot;</param>
+                </condition>
+                <condition id="-3" name="Is on-screen" sid="7137162808165947" type="ApeBoss" />
+                <condition id="-2" name="Compare Y" sid="9245230446788463" type="ApeBoss">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="Y co-ordinate">Arthur.Y-200</param>
+                </condition>
+                <condition id="-2" name="Compare Y" sid="1675587961225775" type="ApeBoss">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="Y co-ordinate">Arthur.Y+200</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block any="1" sid="9638568632731065">
+                    <conditions>
+                        <condition id="2" name="Is playing" sid="7387582526566834" type="ApeBoss">
+                            <param id="0" name="Animation">&quot;Walk&quot;</param>
+                        </condition>
+                        <condition id="2" name="Is playing" sid="3782766083325161" type="ApeBoss">
+                            <param id="0" name="Animation">&quot;Run&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block any="1" sid="505506678351574">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="8697918166965547" type="ApeBoss">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">1</param>
+                                </condition>
+                                <condition id="3" name="Compare frame" sid="7850459839784795" type="ApeBoss">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action disabled="1" id="25" name="Play at object" sid="7567213551245916" type="Audio">
+                                    <param id="0" name="Audio file">gng_ape_step</param>
+                                    <param id="1" name="Loop">0</param>
+                                    <param id="2" name="Volume">-4</param>
+                                    <param id="3" name="Object">ApeBossBox</param>
+                                    <param id="4" name="Inner angle">360</param>
+                                    <param id="5" name="Outer angle">360</param>
+                                    <param id="6" name="Outer gain">0</param>
+                                    <param id="7" name="Tag (optional)">&quot;ApeBossStepSound&quot;</param>
+                                </action>
+                                <action id="0" name="Play" sid="1965938597218814" type="Audio">
+                                    <param id="0" name="Audio file">gng_ape_step</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-4</param>
+                                    <param id="1" name="Tag (optional)">&quot;ApeBossStepSound&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Object-based-sound too low in Chrome</comment>
+    </events>
+</c2eventsheet>
